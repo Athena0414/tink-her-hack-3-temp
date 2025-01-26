@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.doctor-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.doctor-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: calc(33% - 20px);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.doctor-card:hover {
+    transform: scale(1.05);
+}
+
+h2 {
+    color: #333;
+}
+
+p {
+    margin: 8px 0;
+    color: #555;
+}
+
+.select-btn {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.select-btn:hover {
+    background-color: #0056b3;
+}
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.pagination-btn {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.pagination-btn:hover {
+    background-color: #0056b3;
+}
+
+#prev-btn {
+    text-align: left;
+}
+
+#next-btn {
+    text-align: right;
+}
+a{
+    text-decoration: none;
+}

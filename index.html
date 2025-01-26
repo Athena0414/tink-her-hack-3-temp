@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serenity Space</title>
+    <link rel="stylesheet" href="p1v2.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Serenity Space</h1>
+        <p class="quote">"Find peace in the present, and the future will unfold with clarity."</p>
+
+        <form onsubmit="redirectToNextPage(event)">
+            <div class="form-group">
+                <input type="text" name="username" placeholder="Username" required>
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+            <button type="button" class="register-btn">Register</button>
+        </form>
+
+        <div class="options">
+            <a href="#">Forgot Password?</a>
+        </div>
+    </div>
+
+    <script>
+        // Function to redirect to the next page
+        function redirectToNextPage(event) {
+            event.preventDefault(); // Prevent the default form submission
+            const username = document.querySelector('input[name="username"]').value.trim();
+            const password = document.querySelector('input[name="password"]').value.trim();
+
+            if (username && password) {
+                window.location.href = "p2v3.html"; // Redirect to the next page
+            } else {
+                alert('Please fill out all fields before logging in.');
+            }
+        }
+    </script>
+</body>
+</html>

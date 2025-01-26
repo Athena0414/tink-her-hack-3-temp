@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar Booking</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-image: url('file:///C:/Users/user/Downloads/pink-mental-health-background.svg');
+        
+        }
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+        .date-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            background-color: #f9f9f9;
+            width: 350px;
+        }
+        .date-card.disabled {
+            background-color: #f2f2f2;
+            color: #aaa;
+            pointer-events: none;
+        }
+        .payment-section {
+            margin-top: 20px;
+        }
+        .back-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+        .submit-button {
+            display: block;
+            margin: 20px 0;
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .submit-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <h1>Book Your Slot</h1>
+    <div class="calendar">
+        <!-- Example dates (populate dynamically in production) -->
+        <div class="date-card" id="date-1">
+            <p>January 26, 2025</p>
+            <p>Slots: 5/10</p>
+            <select id="select-1">
+                <option value="">Select slot</option>
+                <option value="1">Slot 1</option>
+                <option value="2">Slot 2</option>
+                <option value="3">Slot 3</option>
+                <option value="4">Slot 4</option>
+                <option value="5">Slot 5</option>
+            </select>
+        </div>
+        <div class="date-card disabled" id="date-2">
+            <p>January 27, 2025</p>
+            <p>Slots: 0/10</p>
+            <p>No slots available</p>
+        </div>
+        <!-- More dates dynamically inserted -->
+    </div>
+
+    <div class="payment-section">
+        <h2>Payment</h2>
+        <label for="payment-method">Select Payment Method:</label>
+        <select id="payment-method">
+            <option value="">Choose payment method</option>
+            <option value="upi">UPI</option>
+            <option value="net-banking">Net Banking</option>
+            <option value="card">Credit/Debit Card</option>
+        </select>
+        <br><br>
+        <label for="transaction-id">Transaction ID:</label>
+        <input type="text" id="transaction-id" placeholder="Enter transaction ID">
+        <br><br>
+        <button class="submit-button" onclick="submitForm()">Submit</button>
+    </div>
+
+    <button class="back-button" onclick="goBack()">&#8592; Back</button>
+
+    <script>
+        function submitForm() {
+            const selectedSlot = document.querySelector('select[id^="select-"]:not([value=""])');
+            const paymentMethod = document.getElementById('payment-method').value;
+            const transactionId = document.getElementById('transaction-id').value;
+
+            if (!selectedSlot || !paymentMethod || !transactionId) {
+                alert('Please select a slot, payment method, and provide transaction ID.');
+                return;
+            }
+
+            alert('Form submitted successfully!');
+            window.location.href = 'p6.html'; // Replace with actual next page URL
+        }
+
+        function goBack() {
+            window.location.href = 'p4.html';
+        }
+    </script>
+</body>
+</html>

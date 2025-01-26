@@ -1,0 +1,86 @@
+ /* General Styling */
+ body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #EEE0CB; 
+    color: #333;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 10px;
+    font-size: 36px;
+    color: #280003; 
+    font-family: serif;
+}
+
+p.quote {
+    font-size: 18px;
+    color: #c2847a;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px auto;
+    border: 1px solid #ccc;
+    border-radius: 35px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 10px 5px;
+    color: #fff;
+}
+
+
+.login-btn, .register-btn {
+    background-color: black; 
+}
+
+
+
+.arrow-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #340602; 
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.options{
+    display: block;
+    text-align: center;
+    color: #A9A9A9;
+    font-size: 14px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+

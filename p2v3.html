@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Describe Your Current Well-Being</title>
+    <link rel="stylesheet" href="p2v2.css">
+    <style>
+        /* Initial style for textarea */
+        #textarea {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Describe Your Current Well-Being</h1>
+        <div class="buttons">
+            <button id="startAudio">Record Audio</button>
+            <button id="startVideo">Record Video</button>
+            <button id="showTextarea">Enter the text</button>
+            <textarea id="textarea" placeholder="Type your text here..."></textarea>
+        </div>
+    
+        <div class="preview" id="preview"></div>
+
+        <div class="submit-container">
+            <button id="submit" class="submit-btn">Submit</button>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="arrow-btn" id="goBackBtn">←</button>
+    </div>
+
+    <script>
+        const startAudio = document.getElementById('startAudio');
+        const startVideo = document.getElementById('startVideo');
+        const textarea = document.getElementById('textarea');
+        const preview = document.getElementById('preview');
+        const submit = document.getElementById('submit');
+        const goBackBtn = document.getElementById('goBackBtn');
+        let audioBlob = null;
+        let videoBlob = null;
+        let mediaRecorder = null;
+        let stream = null;
+
+        // Show Textarea
+        const showTextareaBtn = document.getElementById('showTextarea');
+        showTextareaBtn.addEventListener('click', () => {
+            textarea.style.display = 'block'; // Show the textarea
+        });
+
+        // Record Audio
+        startAudio.addEventListener('click', async () => {
+            if (!mediaRecorder || mediaRecorder.state === 'inactive') {
+                try {
+                    stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                    const chunks = [];
+                    mediaRecorder = new MediaRecorder(stream);
+
+                    mediaRecorder.ondataavailable = (event) => chunks.push(event.data);
+                    mediaRecorder.onstop = () => {
+                        audioBlob = new Blob(chunks, { type: 'audio/wav' });
+                        const audioURL = URL.createObjectURL(audioBlob);
+                        const audio = document.createElement('audio');
+                        audio.controls = true;
+                        audio.src = audioURL;
+                        preview.innerHTML = '';
+                        preview.appendChild(audio);
+                    };
+
+                    mediaRecorder.start();
+                    startAudio.innerText = 'Stop Audio';
+                } catch (error) {
+                    alert('Audio permission denied or error occurred.');
+                }
+            } else if (mediaRecorder.state === 'recording') {
+                mediaRecorder.stop();
+                startAudio.innerText = 'Record Audio';
+            }
+        });
+
+        // Record Video
+        startVideo.addEventListener('click', async () => {
+            if (!mediaRecorder || mediaRecorder.state === 'inactive') {
+                try {
+                    stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                    const chunks = [];
+                    mediaRecorder = new MediaRecorder(stream);
+
+                    const video = document.createElement('video');
+                    video.controls = true;
+                    video.srcObject = stream;
+                    video.play();
+                    preview.innerHTML = '';
+                    preview.appendChild(video);
+
+                    mediaRecorder.ondataavailable = (event) => chunks.push(event.data);
+                    mediaRecorder.onstop = () => {
+                        videoBlob = new Blob(chunks, { type: 'video/mp4' });
+                        const videoURL = URL.createObjectURL(videoBlob);
+                        video.srcObject = null;
+                        video.src = videoURL;
+                    };
+
+                    mediaRecorder.start();
+                    startVideo.innerText = 'Stop Video';
+                } catch (error) {
+                    alert('Video permission denied or error occurred.');
+                }
+            } else if (mediaRecorder.state === 'recording') {
+                mediaRecorder.stop();
+                startVideo.innerText = 'Record Video';
+            }
+        });
+
+        // Submit Button
+        submit.addEventListener('click', () => {
+            if (!audioBlob && !videoBlob && textarea.value.trim() === "") {
+                alert('Please provide input (audio, video, or text).');
+                return;
+            }
+
+            alert('Form submitted. Redirecting to the next page...');
+            window.location.href = "p3.html"; // Redirect to the next page
+        });
+
+        // Go Back Button
+        goBackBtn.addEventListener('click', () => {
+            window.location.href = "p1v2.html"; // Navigate to the previous page
+        });
+    </script>
+</body>
+</html>
