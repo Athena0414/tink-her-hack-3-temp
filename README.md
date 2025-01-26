@@ -36,27 +36,32 @@ For Software:
 
 
 
-
-### Implementation
-For Software:
-# Installation
-[commands]
-
-# Run
-[commands]
-
 ### Project Documentation
 For Software:
 
 # Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+![image](https://github.com/user-attachments/assets/ea360226-33d9-47c1-b24f-7e4e3ad097dc)
+User login / register
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+![image](https://github.com/user-attachments/assets/f0acf3fb-0eb9-4f56-910e-f834c1b65b99)
+user input
+
+![image](https://github.com/user-attachments/assets/fee2704c-33b7-42d5-8a7a-5bac08fad236)
+list of doctors
+
+![image](https://github.com/user-attachments/assets/c427c1c6-a05e-463c-98ef-cebeb76006b0)
+appointment booking
+
+![image](https://github.com/user-attachments/assets/a04119dd-01df-48cb-bfcf-99f789a5c6ec)
+slot booking and payment
+
+![image](https://github.com/user-attachments/assets/b22d6fe0-0a86-4812-86a9-d8539a7776fb)
+confirmation page
+
+
+
+
 
 # Diagrams
 1.Open the website and fill out the input form with mental health concerns (e.g., addiction, marriage counseling).
@@ -69,16 +74,8 @@ For Software:
 
 ### Project Demo
 # Video
-[Add your demo video link here]
-*Explain what the video demonstrates*
+https://github.com/user-attachments/assets/2f91fd30-7383-4049-81f8-9d7e22c56123
 
-# Additional Demos
-[Add any extra demo materials/links]
-
-## Team Contributions
-- KARTHIKA S: [Specific contributions]
-- DEVIKRISHNA R: [Specific contributions]
-- MAMTHA SHAJI: [Specific contributions]
 
 ---
 Made with ❤️ at TinkerHub
